@@ -79,7 +79,7 @@ class _AddPrdouctScreenState extends State<AddPrdouctScreen> {
     }
   }
   Future<void> addItem( ) async{
-    Uri uri = Uri.parse('');
+    // Uri uri = await get('https://crud.teamrabbil.com/api/v1/CreateProduct');
   }
 
   InputDecoration _customInputDecoration({required String hintText}) {

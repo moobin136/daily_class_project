@@ -1,11 +1,11 @@
 import 'dart:convert';
 
+import 'package:daily_class_project/productScreen/productModel/productModel.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
-import '../widgest/product_item.dart';
+import '../widgets/product_itemData.dart';
 import 'add_product_screen.dart';
-import 'datamode/productModel.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -63,13 +63,14 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
     );
+
   }
+
 
   List<Productmodel> productList = [];
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getProductInfo();
   }
@@ -86,10 +87,12 @@ class _HomeScreenState extends State<HomeScreen> {
       Map<String, dynamic> jesonDecode = jsonDecode(response.body);
       for (var item in jesonDecode["data"]) {
         Productmodel productmodel = Productmodel(
-          prdouctName: item['ProductName'],
-          productCode: item["ProductCode"],
-          price: item["Img"],
-          qunatity: item['Qty'],
+
+          id: item['_id'] ?? '',
+          prdouctName: item['ProductName'] ?? '',
+          productCode: item["ProductCode"] ?? '',
+          price: item["Img"] ?? '',
+          qunatity: item['Qty'] ?? '',
         );
         inpress = false;
         setState(() {
@@ -99,3 +102,35 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 }
+
+
+//
+// // To parse this JSON data, do
+// //
+// //     final prdouctState = prdouctStateFromJson(jsonString);
+//
+//
+//
+// PrdouctState prdouctStateFromJson(String str) => PrdouctState.fromJson(json.decode(str));
+//
+// String prdouctStateToJson(PrdouctState data) => json.encode(data.toJson());
+//
+// class PrdouctState {
+//   String status;
+//   List<Map<String, String>> data;
+//
+//   PrdouctState({
+//     required this.status,
+//     required this.data,
+//   });
+//
+//   factory PrdouctState.fromJson(Map<String, dynamic> json) => PrdouctState(
+//     status: json["status"],
+//     data: List<Map<String, String>>.from(json["data"].map((x) => Map.from(x).map((k, v) => MapEntry<String, String>(k, v)))),
+//   );
+//
+//   Map<String, dynamic> toJson() => {
+//     "status": status,
+//     "data": List<dynamic>.from(data.map((x) => Map.from(x).map((k, v) => MapEntry<String, dynamic>(k, v)))),
+//   };
+// }
