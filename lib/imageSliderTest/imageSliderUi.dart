@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../buttonClikandShow/buttonClickUi.dart';
 import 'imageSliderController.dart';
 
 class ImageSliderView extends StatelessWidget {
@@ -15,6 +16,7 @@ class ImageSliderView extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
+            
             SizedBox(
               height: 300, // স্লাইডারের উচ্চতা
               child: PageView.builder(
@@ -53,9 +55,7 @@ class ImageSliderView extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            ElevatedButton(onPressed: () {
-              
-            }, child: Text('NextPage'))
+
           ],
         ),
       ),

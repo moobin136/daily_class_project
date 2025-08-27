@@ -1,10 +1,16 @@
 // my_page.dart
+import 'package:daily_class_project/customBlur/blur.dart';
+import 'package:daily_class_project/customTest.dart';
+import 'package:daily_class_project/custom_conteiner/custom_conteiner.dart';
+import 'package:daily_class_project/getx_opachity/container_opacity_ui.dart';
 import 'package:daily_class_project/textFildToShowText/textFildController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../buttonClikandShow/buttonClickUi.dart';
+import '../counter_application/counter_application.dart';
+import '../cusotmButton/customButtonUi.dart';
 import '../imageSliderTest/imageSliderUi.dart';
-
 
 class MyPage extends StatelessWidget {
   // Get.put() দিয়ে কন্ট্রোলারকে ইনিশিয়ালাইজ করা
@@ -13,9 +19,7 @@ class MyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('GetX Save Button Example'),
-      ),
+      appBar: AppBar(title: Text('GetX Save Button Example')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -42,16 +46,75 @@ class MyPage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             // Obx ব্যবহার করে সেভ করা টেক্সট স্বয়ংক্রিয়ভাবে আপডেট করা
-            Obx(() => Text(
+            Obx(
+              () => Text(
                 'সেভ করা টেক্সট: ${myController.savedText.value}',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
             SizedBox(height: 20),
-            ElevatedButton(onPressed: () {
-            Get.to(()=> ImageSliderView());
-            }, child: Text('NextPage')),
+            ElevatedButton(
+              onPressed: () {
+                Get.to(() => ImageSliderView());
+              },
+              child: Text('ImageSlider'),
+            ),
             SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                //TODO
+                Get.to(() => ButtonGroupView());
+              },
+              child: Text('ButtonWork'),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                //TODO
+                Get.to(() => Custombuttonui());
+              },
+              child: Text('CustomButton'),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                //TODO
+                Get.to(() => Blur());
+              },
+              child: Text('Blur'),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                //TODO
+                Get.to(() => PlaceCard());
+              },
+              child: Text('Custom_Container'),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                //TODO
+                Get.to(() => ContactUsPage());
+              },
+              child: Text('CustomTest'),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                //TODO
+                Get.to(() => CounterApplication());
+              },
+              child: Text('Counter Application'),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                //TODO
+                Get.to(() => ContainerOpacityUi());
+              },
+              child: Text('ContainerOpacity'),
+            ),
           ],
         ),
       ),
