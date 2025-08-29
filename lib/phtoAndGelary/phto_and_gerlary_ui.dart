@@ -20,7 +20,7 @@ class PhtoAndGerlaryUi extends StatelessWidget {
           children: [
             Obx(
               () => CircleAvatar(
-                radius: 50,
+                radius: 100,
                 backgroundImage: phtoAndGelrayController.image.isNotEmpty
                     ? FileImage(
                         File(phtoAndGelrayController.image.value.toString()),
