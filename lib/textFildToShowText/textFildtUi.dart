@@ -1,4 +1,5 @@
 // my_page.dart
+
 import 'package:daily_class_project/customBlur/blur.dart';
 import 'package:daily_class_project/customTest.dart';
 import 'package:daily_class_project/custom_conteiner/custom_conteiner.dart';
@@ -9,6 +10,8 @@ import 'package:daily_class_project/textFildToShowText/textFildController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+
+import '../api_test/presentatrion/screen/product_screen.dart';
 import '../buttonClikandShow/buttonClickUi.dart';
 import '../counter_application/counter_application.dart';
 import '../cusotmButton/customButtonUi.dart';
@@ -133,6 +136,14 @@ class MyPage extends StatelessWidget {
                   Get.to(() => PhtoAndGerlaryUi());
                 },
                 child: Text('CameraAndGelaryPath'),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  //TODO
+                  Get.to(() => ProductScreen());
+                },
+                child: Text('API Test'),
               ),
             ],
           ),
