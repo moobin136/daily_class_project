@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:daily_class_project/core/model/network_respone_model.dart';
 import 'package:http/http.dart';
 import 'package:logger/web.dart';
@@ -44,11 +43,17 @@ class NetworkClaint {
 
   ///post
 
-  static Future postRequset({required String url,required body, required header}) async {
+  static Future postRequset({required String url,required Map<String, dynamic> body,}) async {
     try {
       Uri uri = Uri.parse(url);
-      logger.i('Uri : $uri');
-      Response response = await get(uri);
+      logger.i('Uri : $uri\n Body : $body');
+      Response response = await post(uri,
+      headers: { 'Containt-trype': 'Application/json'},
+      body: jsonEncode(body)
+      
+
+  
+      );
       logger.i(
         'Reponse Code : ${response.statusCode}\n'
         'isSucess : ${response.headers}\n'
