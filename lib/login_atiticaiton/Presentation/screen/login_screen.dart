@@ -1,8 +1,7 @@
-
+import 'package:daily_class_project/registioan/registiaon_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/login_controller.dart';
-
 
 class LoginPage extends StatelessWidget {
   final LoginController loginController = Get.put(LoginController());
@@ -10,18 +9,14 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('Login'), centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-
-            TextField(
+            TextFormField(
               decoration: const InputDecoration(
                 labelText: 'UserName',
                 border: OutlineInputBorder(),
@@ -44,56 +39,31 @@ class LoginPage extends StatelessWidget {
             ),
             const SizedBox(height: 32),
 
-            Obx(() => ElevatedButton(
-              onPressed: loginController.isLoading.value
-                  ? null
-                  : () => loginController.loginUser(),
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                textStyle: const TextStyle(fontSize: 18),
+            Obx(
+              () => ElevatedButton(
+                onPressed: loginController.isLoading.value
+                    ? null
+                    : () => loginController.loginUser(),
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  textStyle: const TextStyle(fontSize: 18),
+                ),
+                child: loginController.isLoading.value
+                    ? const CircularProgressIndicator(color: Colors.black)
+                    : const Text('Login'),
               ),
-              child: loginController.isLoading.value
-                  ? const CircularProgressIndicator(color: Colors.black)
-                  : const Text('Login'),
-            )),
+            ),
+
+            SizedBox(height: 100),
+            TextButton(
+              onPressed: () {
+                Get.to(() => RegistrationForm());
+              },
+              child: Text('Restion'),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-
-
-// import 'package:daily_class_project/login_atiticaiton/Presentation/screen/welcome_page.dart';
-// import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-//
-// class Login extends StatelessWidget {
-//   const Login({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: Text('Login Screen')),
-//       body: Padding(
-//         padding: EdgeInsets.symmetric(horizontal: 20.0),
-//         child: Column(
-//           children: [
-//             SizedBox(height: 20),
-//             TextFormField(),
-//             SizedBox(height: 20),
-//             TextFormField(),
-//             SizedBox(height: 30),
-//             SizedBox(
-//               width: double.infinity,
-//               child: ElevatedButton(onPressed: () {
-//                 Get.to(()=> WelcomePage());
-//               }, child: Text('Login')),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
