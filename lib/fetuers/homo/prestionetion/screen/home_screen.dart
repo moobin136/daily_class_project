@@ -31,13 +31,13 @@ class HomeScreen extends StatelessWidget {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
+                      // crossAxisSpacing: 5,
+                      // mainAxisSpacing: 3,
                       childAspectRatio: 0.6, // Adjusted for taller cells
                     ),
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemCount: 10, // Set to 2 to match original two items
+                    itemCount: 10, 
                     itemBuilder: (context, index) {
                       return const customGridButon();
                     },
