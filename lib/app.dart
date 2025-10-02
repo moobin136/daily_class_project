@@ -1,4 +1,4 @@
-import 'package:daily_class_project/fetuers/homo/prestionetion/screen/home_screen.dart';
+import 'package:daily_class_project/futers/auth/screen/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
